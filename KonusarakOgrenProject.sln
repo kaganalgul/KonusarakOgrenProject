@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonusarakOgrenProject.Web", "KonusarakOgrenProject.Web\KonusarakOgrenProject.Web.csproj", "{79E64F63-5257-4748-9B85-A278143C96A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonusarakOgrenProject.Web", "KonusarakOgrenProject.Web\KonusarakOgrenProject.Web.csproj", "{79E64F63-5257-4748-9B85-A278143C96A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonusarakOgrenProject.DataAccess", "KonusarakOgrenProject.DataAccess\KonusarakOgrenProject.DataAccess.csproj", "{B3168876-7BC4-40EA-9A90-17EC011B2866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonusarakOgrenProject.DataAccess", "KonusarakOgrenProject.DataAccess\KonusarakOgrenProject.DataAccess.csproj", "{B3168876-7BC4-40EA-9A90-17EC011B2866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonusarakOgrenProject.Business", "KonusarakOgrenProject.Business\KonusarakOgrenProject.Business.csproj", "{646543B1-4B31-4931-9F9E-09043D93179F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonusarakOgrenProject.Business", "KonusarakOgrenProject.Business\KonusarakOgrenProject.Business.csproj", "{646543B1-4B31-4931-9F9E-09043D93179F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonusarakOgrenProject.Entity", "KonusarakOgrenProject.Entity\KonusarakOgrenProject.Entity.csproj", "{3C209709-A6D7-4089-B7DB-C762C9F1882D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonusarakOgrenProject.Entity", "KonusarakOgrenProject.Entity\KonusarakOgrenProject.Entity.csproj", "{3C209709-A6D7-4089-B7DB-C762C9F1882D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonusarakOgrenProject.Mapping", "KonusarakOgrenProject.Mapping\KonusarakOgrenProject.Mapping.csproj", "{E219B8BD-E43C-424B-9DB8-58C6D2B0EC6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3C209709-A6D7-4089-B7DB-C762C9F1882D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C209709-A6D7-4089-B7DB-C762C9F1882D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C209709-A6D7-4089-B7DB-C762C9F1882D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E219B8BD-E43C-424B-9DB8-58C6D2B0EC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E219B8BD-E43C-424B-9DB8-58C6D2B0EC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E219B8BD-E43C-424B-9DB8-58C6D2B0EC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E219B8BD-E43C-424B-9DB8-58C6D2B0EC6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
