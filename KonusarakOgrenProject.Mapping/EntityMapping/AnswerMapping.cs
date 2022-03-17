@@ -18,8 +18,6 @@ namespace KonusarakOgrenProject.Mapping.EntityMapping
             builder.Property(x => x.Text).IsRequired();
 
             builder.Property(x => x.Question).IsRequired();
-
-            builder.Property(x => x.Exam).IsRequired();
         }
     }
 }

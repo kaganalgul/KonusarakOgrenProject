@@ -11,10 +11,10 @@ namespace KonusarakOgrenProject.Entity.Concrete
     {
         public string Paragraph { get; set; }
 
-        public Question Question { get; set; }
+        public Article Article { get; set; }
 
-        public int QuestionId { get; set; }
+        public int ArticleId { get; set; }
 
-        public ICollection<Answer> Answers { get; set; }
+        public ICollection<Question> Questions { get; set; }
     }
 }

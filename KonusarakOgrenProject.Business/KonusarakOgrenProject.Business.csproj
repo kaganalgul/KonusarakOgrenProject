@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KonusarakOgrenProject.DataAccess\KonusarakOgrenProject.DataAccess.csproj" />
     <ProjectReference Include="..\KonusarakOgrenProject.Entity\KonusarakOgrenProject.Entity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
   </ItemGroup>
 
 </Project>

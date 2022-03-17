@@ -12,15 +12,12 @@ namespace KonusarakOgrenProject.Business.EntityValidation
     {
         static readonly int maxLength = 500;
 
-        readonly string notNullMessage = "This field cannot be empty.";
-        readonly string maxLengthMessage = $"Maximum length of this field can be {maxLength}";
-
         public QuestionValidator()
         {
             RuleFor(x => x.Text)
-                .NotEmpty().WithMessage(notNullMessage)
-                .NotNull().WithMessage(notNullMessage)
-                .MaximumLength(maxLength).WithMessage(maxLengthMessage);
+                .NotEmpty()
+                .NotNull()
+                .MaximumLength(maxLength);
         }
     }
 }

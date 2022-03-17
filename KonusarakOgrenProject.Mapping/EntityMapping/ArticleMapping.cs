@@ -9,17 +9,15 @@ using System.Threading.Tasks;
 
 namespace KonusarakOgrenProject.Mapping.EntityMapping
 {
-    public class ExamMapping : IEntityTypeConfiguration<Exam>
+    public class ArticleMapping : IEntityTypeConfiguration<Article>
     {
-        public void Configure(EntityTypeBuilder<Exam> builder)
+        public void Configure(EntityTypeBuilder<Article> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Paragraph).IsRequired();
+            builder.Property(x => x.Title).IsRequired();
 
-            builder.HasMany(x => x.Questions).WithOne(x => x.Exam).HasForeignKey(x => x.ExamId);
-
-            builder.HasOne(x => x.Article);
+            builder.Property(x => x.Content).IsRequired();
         }
     }
 }

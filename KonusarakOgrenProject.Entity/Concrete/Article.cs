@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace KonusarakOgrenProject.Entity.Concrete
 {
-    public class Question : BaseEntity, IQuestion
+    public class Article : BaseEntity, IArticle
     {
-        public string Text { get; set; }
+        public string Content { get; set; }
 
-        public Exam Exam { get; set; }
-
-        public int ExamId { get; set; }
-
-        public ICollection<Answer> Answers { get; set; }
+        public string Title { get; set; }
     }
 }

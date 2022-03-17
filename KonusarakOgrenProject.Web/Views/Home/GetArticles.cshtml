@@ -1,0 +1,11 @@
+﻿@model List<GetArticleViewModel>
+
+@{
+    ViewData["Title"] = "GetArticles";
+}
+
+@foreach(var item in Model)
+{
+	<h1>@Html.Raw(@item.Title)</h1>
+	<div class="form-control" style="height:300px; overflow-y:auto">@Html.Raw(@item.Content)</div>
+}
