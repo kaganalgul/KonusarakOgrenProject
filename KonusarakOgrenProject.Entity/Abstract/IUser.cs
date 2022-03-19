@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace KonusarakOgrenProject.Entity.Abstract
 {
-    public interface IAnswer
+    public interface IUser
     {
-        public string Text { get; set; }
+        public string Username { get; set; }
 
-        public bool isTrue { get; set; }
+        public string Password { get; set; }
     }
 }

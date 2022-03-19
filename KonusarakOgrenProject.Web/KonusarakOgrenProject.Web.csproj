@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Cronos" Version="0.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.3" />
@@ -17,7 +18,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KonusarakOgrenProject.Business\KonusarakOgrenProject.Business.csproj" />
+    <ProjectReference Include="..\KonusarakOgrenProject.Core\KonusarakOgrenProject.Core.csproj" />
     <ProjectReference Include="..\KonusarakOgrenProject.DataAccess\KonusarakOgrenProject.DataAccess.csproj" />
+    <ProjectReference Include="..\KonusarakOgrenProject.Entity\KonusarakOgrenProject.Entity.csproj" />
   </ItemGroup>
 
 </Project>

@@ -71,7 +71,7 @@ namespace KonusarakOgrenProject.Business.Concrete
                 x.Attributes["class"].Value == "paywall" ||
                 x.Attributes["class"].Value == "paywall heading-h3").Where(x => !x.Attributes.Contains("div")).ToList();
 
-                InnerContainerElements = InnerContainerElements.Take(InnerContainerElements.Count - 2).ToList();
+                InnerContainerElements = InnerContainerElements.Take(InnerContainerElements.Count - 2).ToList(); // Delete the advertising area.
 
                 var space = "<br /><br />";
 

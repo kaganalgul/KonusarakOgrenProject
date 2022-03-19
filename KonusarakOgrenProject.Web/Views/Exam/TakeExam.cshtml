@@ -1,0 +1,91 @@
+﻿@model TakeExamViewModel
+
+
+<textarea class="form-control mb-3" rows="1" disabled>@Html.Raw(Model.Exam.Article.Title)</textarea>
+<div class="form-control" style="height:300px; overflow-y:auto">
+    @Html.Raw(Model.Exam.Article.Content)
+</div>
+@*<textarea class="form-control" rows="5" disabled>@Html.Raw(Model.ArticleContent)</textarea>*@
+
+
+
+<div class="d-flex mt-3">
+    <div class="w-50 mx-2">
+        @{
+            var counter = 0;
+            foreach (var question in Model.Exam.Questions)
+        {
+            
+        <textarea class="form-control my-2" disabled rows="1">@question.Text</textarea>
+        <div id="question-@counter" class="btn-group-vertical btn-block">
+            <button type="button" class="btn btn-outline-primary text-left" id="@question.OptionA">@question.OptionA</button>
+            <button type="button" class="btn btn-outline-primary text-left" id="@question.OptionB">@question.OptionB</button>
+            <button type="button" class="btn btn-outline-primary text-left" id="@question.OptionC">@question.OptionC</button>
+            <button type="button" class="btn btn-outline-primary text-left" id="@question.OptionD">@question.OptionD</button>
+                </div>
+                counter++;
+            }
+    }
+ 
+
+   
+
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-center pt-4">
+    <button class=" btn-lg btn-outline-secondary btn-light text-center w-25" style="height: 50px;" onclick="submitExam()">FINISH THE EXAM</button>
+</div>
+
+@section Scripts {
+    <script>
+        $('.btn').click(function () {
+            var btn = $(this);
+            btn.addClass("active");
+            btn.siblings().removeClass("active");
+        });
+
+        function submitExam() {
+            var result=[];
+            var examId = String(@Model.Exam.Id);
+            for(let i=0; i<@Model.Exam.Questions.Count;i++){
+                   var selected = $('#question-'+i+' > button.active').attr('id');
+                   result.push(selected);
+            }
+            
+            //var q1SelectedOption = $('#question > button.active').attr('id');
+            //var q2SelectedOption = $('#q2opts > button.active').attr('id');
+            //var q3SelectedOption = $('#q3opts > button.active').attr('id');
+            //var q4SelectedOption = $('#q4opts > button.active').attr('id');
+            //var data = { q1Selected: q1SelectedOption, q2Selected: q2SelectedOption, q3Selected: q3SelectedOption, q4Selected: q4SelectedOption, id: examId };
+            var data ={results:result,id:examId};
+            console.log(data);
+            //$.ajax({
+            //    type: 'POST',
+            //    dataType: 'Json',
+            //    url: '/Home/ExamResult',
+            //    url: '@Url.Action("ExamResult", "Home")',
+            //    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',  //dene
+            //    data: data,
+            //    success: function (result) {
+            //        alert('Successfully received Data ');
+
+            //        alert(result);         
+
+            //        $('#q1opts').find('.active').first().css("background-color", result[0]);
+            //        $('#q2opts').find('.active').first().css("background-color", result[1]);
+            //        $('#q3opts').find('.active').first().css("background-color", result[2]);
+            //        $('#q4opts').find('.active').first().css("background-color", result[3]);
+
+            //        document.getElementById("deneme1").value = result;
+            //        document.getElementById("deneme2").innerText = result.first();
+
+            //    },
+            //    error: function () {
+            //        alert('Failed to receive the Data');
+            //    }
+            //})
+        }
+    </script>
+}

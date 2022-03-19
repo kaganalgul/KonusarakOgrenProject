@@ -15,8 +15,6 @@ namespace KonusarakOgrenProject.Mapping.EntityMapping
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Paragraph).IsRequired();
-
             builder.HasMany(x => x.Questions).WithOne(x => x.Exam).HasForeignKey(x => x.ExamId);
 
             builder.HasOne(x => x.Article);

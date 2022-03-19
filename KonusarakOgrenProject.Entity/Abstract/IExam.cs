@@ -8,6 +8,6 @@ namespace KonusarakOgrenProject.Entity.Abstract
 {
     public interface IExam
     {
-        public string Paragraph { get; set; }
+
     }
 }

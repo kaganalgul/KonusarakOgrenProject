@@ -2,6 +2,7 @@
 using KonusarakOgrenProject.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,12 +10,36 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KonusarakOgrenProject.DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220318120701_DatabaseChange")]
+    partial class DatabaseChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
+
+            modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("isTrue")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("Answers");
+                });
 
             modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Article", b =>
                 {
@@ -60,27 +85,7 @@ namespace KonusarakOgrenProject.DataAccess.Migrations
                     b.Property<int>("ExamId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("OptionA")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OptionB")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OptionC")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OptionD")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("TrueOption")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -110,6 +115,17 @@ namespace KonusarakOgrenProject.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Answer", b =>
+                {
+                    b.HasOne("KonusarakOgrenProject.Entity.Concrete.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Exam", b =>
                 {
                     b.HasOne("KonusarakOgrenProject.Entity.Concrete.Article", "Article")
@@ -135,6 +151,11 @@ namespace KonusarakOgrenProject.DataAccess.Migrations
             modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Exam", b =>
                 {
                     b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("KonusarakOgrenProject.Entity.Concrete.Question", b =>
+                {
+                    b.Navigation("Answers");
                 });
 #pragma warning restore 612, 618
         }

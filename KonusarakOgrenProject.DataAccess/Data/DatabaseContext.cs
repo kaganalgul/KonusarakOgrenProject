@@ -17,7 +17,7 @@ namespace KonusarakOgrenProject.DataAccess.Data
             
         }
 
-        public DbSet<Answer> Answers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public DbSet<Exam> Exams { get; set; }
 

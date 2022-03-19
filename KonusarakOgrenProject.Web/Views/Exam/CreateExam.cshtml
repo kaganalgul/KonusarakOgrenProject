@@ -1,0 +1,66 @@
+﻿@model CreateExamViewModel
+@{
+    ViewData["Title"] = "Create Exam Page";
+}
+
+<form id="formFilter" method="post">
+    <label>Article Title</label>
+    <select id="selectlisttest" onchange="testfunc()" class="form-control" asp-items="@Model.ArticleTitles" asp-for="@Model.SelectedArticleId">
+        <option value="0">All</option>
+    </select>
+    
+    <label for="SelectedArticleContent">Article Content</label>
+    <div id="article-content" class="form-control" style="height:300px; overflow-y:auto"></div>
+    <label for="firstQuestionContent">Question 1</label>
+
+    <textarea class="form-control" id="firstQuestionContent" rows="1" placeholder="content" asp-for="@Model.ExamViewModels.Questions[0].Text"></textarea>
+    <div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="A)" asp-for="@Model.ExamViewModels.Questions[0].OptionA"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="B)" asp-for="@Model.ExamViewModels.Questions[0].OptionB"></textarea>
+        </div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="C)" asp-for="@Model.ExamViewModels.Questions[0].OptionC"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="D)" asp-for="@Model.ExamViewModels.Questions[0].OptionD"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <select class="form-control w-25 text-center btn-outline-info" asp-for="@Model.ExamViewModels.Questions[0].TrueOption">
+                <option value="">Select the answer</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center pt-4">
+        <button class=" btn-lg btn-outline-secondary btn-light text-center w-25" style="height: 50px;" type="submit" asp-controller="Exam" asp-action="CreateExam">CREATE EXAM</button>
+    </div>
+
+</form>
+
+
+
+@section Scripts {
+    <script>
+        //$("form#formFilter").change(function () {
+        //    this.submit();
+        //});
+
+        function testfunc(){
+            var number= $('#selectlisttest').val(); // id si selectlisttest olan drop down list'in içersinde seçilen elemanın değerini alır.
+         
+           $.ajax({ // ajax kullanarak sayfa refreshlenmeden değeri tutulan article'ın verilerini getirir. Bu sayede tüm verileri getirmeyerek trafiği yormamış oluruz. 
+               url:'/Exam/GetSelectedArticle?id='+number,  // query string
+               type:'GET',
+               success:function (response){
+                   console.log(response);
+                   $('#article-content').html(response.content) // id'si article-content olan div'in html'ine response'un contentini bas.
+               }
+
+           })  
+           //window.alert(number);
+        }
+    </script>
+    
+}

@@ -17,7 +17,10 @@ namespace KonusarakOgrenProject.Mapping.EntityMapping
 
             builder.Property(x => x.Text).IsRequired();
 
-            builder.HasMany(x => x.Answers).WithOne(x => x.Question).HasForeignKey(x => x.QuestionId);
+            builder.Property(x => x.OptionA).IsRequired();
+            builder.Property(x => x.OptionB).IsRequired();
+            builder.Property(x => x.OptionC).IsRequired();
+            builder.Property(x => x.OptionD).IsRequired();
         }
     }
 }

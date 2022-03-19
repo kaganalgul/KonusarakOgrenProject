@@ -1,20 +1,22 @@
 using KonusarakOgrenProject.Business.Abstract;
 using KonusarakOgrenProject.Business.Concrete;
+using KonusarakOgrenProject.Core.CronJob;
 using KonusarakOgrenProject.DataAccess.Data;
-using KonusarakOgrenProject.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(connectionString));
+
+//builder.Services.AddCronJob<MyCronJob>();
+builder.Services.AddSession();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<IGetArticleFromWebsiteService, GetArticleFromWebsiteManager>();
-
+builder.Services.AddScoped<ICreateExamService, CreateExamManager>();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<DatabaseContext>();
 builder.Services.AddControllersWithViews();
@@ -25,6 +27,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    app.UseSession();
 }
 else
 {

@@ -14,10 +14,7 @@ namespace KonusarakOgrenProject.Business.EntityValidation
 
         public ExamValidator()
         {
-            RuleFor(x => x.Paragraph)
-                .NotEmpty()
-                .NotNull()
-                .MaximumLength(maxLength);
+
         }
     }
 }

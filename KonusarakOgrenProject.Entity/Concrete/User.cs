@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace KonusarakOgrenProject.Entity.Concrete
 {
-    public class Exam : BaseEntity, IExam
+    public class User : BaseEntity, IUser
     {
-        public Article Article { get; set; }
-
-        public int ArticleId { get; set; }
-
-        public List<Question> Questions { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
