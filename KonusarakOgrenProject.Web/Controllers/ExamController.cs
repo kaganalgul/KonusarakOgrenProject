@@ -82,8 +82,9 @@ namespace KonusarakOgrenProject.Web.Controllers
 
         [LoggedUser]
         [HttpPost]
-        public IActionResult TakeExam(Exam exam)
+        public IActionResult TakeExam(int id)
         {
+
             return View();
         }
     }

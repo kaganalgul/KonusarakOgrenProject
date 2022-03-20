@@ -11,6 +11,7 @@
     
     <label for="SelectedArticleContent">Article Content</label>
     <div id="article-content" class="form-control" style="height:300px; overflow-y:auto"></div>
+    
     <label for="firstQuestionContent">Question 1</label>
 
     <textarea class="form-control" id="firstQuestionContent" rows="1" placeholder="content" asp-for="@Model.ExamViewModels.Questions[0].Text"></textarea>
@@ -25,6 +26,69 @@
         </div>
         <div class="d-flex justify-content-center">
             <select class="form-control w-25 text-center btn-outline-info" asp-for="@Model.ExamViewModels.Questions[0].TrueOption">
+                <option value="">Select the answer</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+    </div>
+    <label for="firstQuestionContent">Question 2</label>
+    <textarea class="form-control" id="firstQuestionContent" rows="1" placeholder="content" asp-for="@Model.ExamViewModels.Questions[1].Text"></textarea>
+    <div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="A)" asp-for="@Model.ExamViewModels.Questions[1].OptionA"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="B)" asp-for="@Model.ExamViewModels.Questions[1].OptionB"></textarea>
+        </div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="C)" asp-for="@Model.ExamViewModels.Questions[1].OptionC"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="D)" asp-for="@Model.ExamViewModels.Questions[1].OptionD"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <select class="form-control w-25 text-center btn-outline-info" asp-for="@Model.ExamViewModels.Questions[1].TrueOption">
+                <option value="">Select the answer</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+    </div>
+    <label for="firstQuestionContent">Question 3</label>
+    <textarea class="form-control" id="firstQuestionContent" rows="1" placeholder="content" asp-for="@Model.ExamViewModels.Questions[2].Text"></textarea>
+    <div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="A)" asp-for="@Model.ExamViewModels.Questions[2].OptionA"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="B)" asp-for="@Model.ExamViewModels.Questions[2].OptionB"></textarea>
+        </div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="C)" asp-for="@Model.ExamViewModels.Questions[2].OptionC"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="D)" asp-for="@Model.ExamViewModels.Questions[2].OptionD"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <select class="form-control w-25 text-center btn-outline-info" asp-for="@Model.ExamViewModels.Questions[2].TrueOption">
+                <option value="">Select the answer</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+    </div>
+    <label for="firstQuestionContent">Question 4</label>
+    <textarea class="form-control" id="firstQuestionContent" rows="1" placeholder="content" asp-for="@Model.ExamViewModels.Questions[3].Text"></textarea>
+    <div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="A)" asp-for="@Model.ExamViewModels.Questions[3].OptionA"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="B)" asp-for="@Model.ExamViewModels.Questions[3].OptionB"></textarea>
+        </div>
+        <div class="d-flex">
+            <textarea class="form-control w-50" rows="1" placeholder="C)" asp-for="@Model.ExamViewModels.Questions[3].OptionC"></textarea>
+            <textarea class="form-control w-50" rows="1" placeholder="D)" asp-for="@Model.ExamViewModels.Questions[3].OptionD"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <select class="form-control w-25 text-center btn-outline-info" asp-for="@Model.ExamViewModels.Questions[3].TrueOption">
                 <option value="">Select the answer</option>
                 <option value="A">A</option>
                 <option value="B">B</option>

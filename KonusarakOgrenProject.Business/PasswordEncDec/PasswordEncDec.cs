@@ -8,7 +8,7 @@ namespace KonusarakOgrenProject.Business.PasswordEndDec
 {
     public class PasswordEncDec
     {
-        public static string Key = "@S3cr)3t!.,"; // SecretKey, In real time project this value must be taken from secret.json with IConfiguration. Otherwise, it can be easily seen by bad people(HACKERS!) :)
+        public static string Key = "@S3cr)3t!.,"; // SecretKey. In real time project this value must be taken from secret.json with IConfiguration. Otherwise, it can be easily seen by bad people(HACKERS!) :)
 
         public static string ConvertToEncrypt(string password)
         {

@@ -10,7 +10,7 @@
     }
     @if(HttpContextAccessor.HttpContext.Session.GetString("username") != null)
     {
-        <h1>To Get Articles From www.wired.com/most-recent Please Click The "Get Articles" Button on Top Navigation Bar</h1> 
+        <h1>To See Articles From www.wired.com/most-recent Please Click The "Get Articles" Button on Top Navigation Bar</h1> 
             <table class="table">
                 <thead>
                     <tr>
@@ -24,7 +24,10 @@
                             <td><div class="col-4">@item.ExamName</div></td>
                             <td>
                                 <div class="col-4">
-                                     <a href="/Exam/DeleteExam/@item.Id" class="btn btn-danger">Delete</a>
+                                     <a href="/Exam/DeleteExam/@item.Id" class="btn btn-danger">Delete Exam</a>
+                                </div>
+                                <div class="col-4">
+                                     <a href="/Exam/TakeExam/@item.Id" class="btn btn-primary">Take Exam</a>
                                 </div>
                             </td>
                         </tr>
