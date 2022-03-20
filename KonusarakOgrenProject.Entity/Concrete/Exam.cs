@@ -9,6 +9,8 @@ namespace KonusarakOgrenProject.Entity.Concrete
 {
     public class Exam : BaseEntity, IExam
     {
+        public string ExamName { get; set; }
+
         public Article Article { get; set; }
 
         public int ArticleId { get; set; }

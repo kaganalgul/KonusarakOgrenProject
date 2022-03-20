@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KonusarakOgrenProject.Entity.Abstract
+namespace KonusarakOgrenProject.Business.Abstract
 {
-    public interface IExam
+    public interface IDeleteExamService
     {
-        public string ExamName { get; set; }
+        public bool DeleteExam(int id);
     }
 }

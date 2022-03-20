@@ -1,21 +1,39 @@
 ﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+@model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 <div class="jumbotron text-center">
     @if (TempData["message"]!=null)
     {
-        <div class="btn-primary btn"> @TempData["message"] </div>
+        <p> @TempData["message"] </p>
     }
     @if(HttpContextAccessor.HttpContext.Session.GetString("username") != null)
     {
-        <input type="button" value="Create" onclick="location.href='@Url.Action("Exam", "CreateExam")'" />
-        <a asp-area="" asp-controller="Exam" asp-action="CreateExam">Create Exam</a>
+        <h1>To Get Articles From www.wired.com/most-recent Please Click The "Get Articles" Button on Top Navigation Bar</h1> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><div class="col-4">Exam Article</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach(var item in @Model.Exams)
+                        {
+                        <tr>
+                            <td><div class="col-4">@item.ExamName</div></td>
+                            <td>
+                                <div class="col-4">
+                                     <a href="/Exam/DeleteExam/@item.Id" class="btn btn-danger">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                </tbody>
+            </table>            
     }
     else
     {
-    <h1>www.konusarakogren.com'a Hoşgeldiniz</h1>        
+           
     }
-  <h2>Online İngilizce Öğrenmek İçin Doğru Adrestesiniz</h2>
-  <h3>Ana Dili İngilizce Olan Eğitmenlerle, Günde 10, 20 veya 30 Dakikalık Derslerle İngilizce Öğrenin</h3> 
 </div>

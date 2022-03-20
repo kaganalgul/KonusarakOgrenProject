@@ -18,6 +18,8 @@ namespace KonusarakOgrenProject.Mapping.EntityMapping
             builder.HasMany(x => x.Questions).WithOne(x => x.Exam).HasForeignKey(x => x.ExamId);
 
             builder.HasOne(x => x.Article);
+
+            builder.Property(x => x.ExamName).IsRequired();
         }
     }
 }

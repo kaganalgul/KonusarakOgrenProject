@@ -17,6 +17,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<IGetArticleFromWebsiteService, GetArticleFromWebsiteManager>();
 builder.Services.AddScoped<ICreateExamService, CreateExamManager>();
+builder.Services.AddScoped<IDeleteExamService, DeleteExamManager>();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<DatabaseContext>();
 builder.Services.AddControllersWithViews();
@@ -46,7 +47,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Auth}/{action=Login}/{id?}");
 app.MapRazorPages();
 
 app.Run();

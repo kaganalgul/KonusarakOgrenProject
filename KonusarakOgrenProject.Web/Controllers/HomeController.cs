@@ -1,7 +1,9 @@
 ﻿using KonusarakOgrenProject.Business.Abstract;
+using KonusarakOgrenProject.Core.Filters;
 using KonusarakOgrenProject.DataAccess.Data;
 using KonusarakOgrenProject.Entity.Concrete;
 using KonusarakOgrenProject.Web.Models;
+using KonusarakOgrenProject.Web.Models.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,11 +20,15 @@ namespace KonusarakOgrenProject.Web.Controllers
             _getArticleFromWebsiteService = getArticleFromWebsiteService;
         }
 
+        [LoggedUser]
         public IActionResult Index()
         {
-            return View();
+            HomeViewModel model = new HomeViewModel();
+            model.Exams = _db.Exams.ToList();
+            return View(model);
         }
 
+        [LoggedUser]
         [HttpGet]
         public IActionResult GetArticles()
         {

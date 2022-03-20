@@ -1,6 +1,7 @@
 ﻿using KonusarakOgrenProject.Business.Abstract;
 using KonusarakOgrenProject.DataAccess.Data;
 using KonusarakOgrenProject.Entity.Concrete;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace KonusarakOgrenProject.Business.Concrete
             Exam exam = new Exam();
             exam.ArticleId = articleId;
             exam.Questions = questions;
+            exam.ExamName = _db.Articles.FirstOrDefault(x => x.Id == articleId).Title;
             try
             {
                 _db.Exams.Add(exam);

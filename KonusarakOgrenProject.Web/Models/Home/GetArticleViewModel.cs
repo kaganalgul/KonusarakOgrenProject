@@ -1,4 +1,4 @@
-﻿namespace KonusarakOgrenProject.Web.Models
+﻿namespace KonusarakOgrenProject.Web.Models.Home
 {
     public class GetArticleViewModel
     {
